@@ -18,12 +18,15 @@ import argparse
 parser = argparse.ArgumentParser(description = 'Predicts values')
 parser.add_argument('-tst', '--test_data', type = str, metavar = '', required = True, help = 'path to test_evaluationlib dataset (location of test_evaluationlib directory)')
 parser.add_argument('-d', '--device', type = str, metavar = '', required = True, help = 'device to use for model')
+parser.add_argument('-bs', '--batch_size', type = int, metavar = '', required = True, help = 'batch_size')
+
 
 args = parser.parse_args()
 
 def predict_values(args):
 
 	device = args.device
+	batch_size = args.batch_size
 
 	model = torch.load('best_model.pth')
 	model = model.to(device)
@@ -31,7 +34,7 @@ def predict_values(args):
 	
 	transforms = Compose([MFCC_transform()])
 	test_dataset = EvaluationDataset(args.test_data, transforms = transforms)
-	test_dataloader = DataLoader(test_dataset, collate_fn = collate_fn_test, batch_size = 64, shuffle = False, drop_last = False)
+	test_dataloader = DataLoader(test_dataset, collate_fn = collate_fn_test, batch_size = batch_size, shuffle = False, drop_last = False)
 	
 	output = []
 	with torch.no_grad():
