@@ -36,9 +36,9 @@ batch_size - размер батча
 В процессе обучения использую смешивание сигнала с шумом (датасет шумов MUSAN).
 В качестве ключевой метрики roc auc score.
 
-Обучение производиться на данных train-clean-360 c добавлением шума из musan (free_noise + sound_bible), валидация на train-clean-100 + c добавлением шума из musan (free_noise + sound_bible), которых не было в обучающей выборке.\
+Обучение производиться на данных train-clean-360 c добавлением шума из musan (free_noise + sound_bible), валидация на train-clean-100 + c добавлением шума из musan (free_noise + sound_bible), которых не было в обучающей выборке.
 
-Обучение проводил на cpu (1 эпоха 3 часа 15 минут).
+Обучение проводил на cpu (1 эпоха 3 часа 15 минут) - 1 эпоха.
 ## Prediction 
 Файл predictions.json - {'file_name1':[score1,score2,...,scoreN_1], 'file_name2':[score1,score2,...,scoreN_2],...}
 
