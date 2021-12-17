@@ -26,7 +26,9 @@ def predict_values(args):
 	device = args.device
 
 	model = torch.load('best_model.pth')
-
+	model = model.to(device)
+	model.eval()
+	
 	transforms = Compose([MFCC_transform()])
 	test_dataset = EvaluationDataset(args.test_data, transforms = transforms)
 	test_dataloader = DataLoader(test_dataset, collate_fn = collate_fn_test, batch_size = 64, shuffle = False, drop_last = False)
