@@ -23,6 +23,10 @@ python predict.py -tst test_evaluationlib_directory -d device -bs batch_size
 test_evaluationlib_directory - путь до директории с папкой (датасетом) test_evaluationlib 
 device - cpu/cuda 
 batch_size - размер батча 
+## Пороги
+FA(1%) = 0.8125
+FR(1%) = 0.5736
+FA = FR (0.800)
 
 ## Обзор существующих методов
 За последние года (2020-2021) для задачи VAD в основном в работах используют архитектуры основанные на рекурентных и сверточных сетях. \
