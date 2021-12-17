@@ -26,7 +26,7 @@ batch_size - размер батча
 ## Пороги
 FA(1%) = 0.8125 \
 FR(1%) = 0.5736 \
-FA==FR = 0.800
+FA==FR = 0.800 \ 
 <img src = Val_presision_recall_curve.png>
 
 ## Обзор существующих методов
