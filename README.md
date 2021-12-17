@@ -1,28 +1,28 @@
 # VK_VAD_test
 
 ## Файлы 
-model.py - реализован Frequential Attention + сама нейронная сеть\
-utils.py - утилиты (датасеты под обучение training loop'ы, аугоментации и тд)\
-train.py - запуск обуечения\
-predict.py - запуск инференса\
+model.py - реализован Frequential Attention + сама нейронная сеть
+utils.py - утилиты (датасеты под обучение training loop'ы, аугоментации и тд)
+train.py - запуск обуечения
+predict.py - запуск инференса
 
 ## Инструкция по запуску обучения
-Предваритльно должны быть установлены библиотеки librosa, pytorch, torchaudio, sklearn, random, numpy, tqdm.\
-Разархивировать датасеты (LibriSpeech , musan (https://www.openslr.org/17/), test_evaluationlib (тестовый датасет for_devs)) и оставить их с дефолтными именами \
+Предваритльно должны быть установлены библиотеки librosa, pytorch, torchaudio, sklearn, random, numpy, tqdm.
+Разархивировать датасеты (LibriSpeech , musan (https://www.openslr.org/17/), test_evaluationlib (тестовый датасет for_devs)) и оставить их с дефолтными именами 
 
-python train.py -lbs LibriSpeech_directory -m musan_directory -n n_epoch -d device -bs batch_size \
+python train.py -lbs LibriSpeech_directory -m musan_directory -n n_epoch -d device -bs batch_size 
 
-LibriSpeech_directory - путь до директории с папкой (датасетом) LibriSpeech \
-musan_directory - путь до директории с папкой (датасетом) musan \
-device - cpu/cuda \
-n_epoch - число эпох прогона обучения \
-batch_size - размер батча \
+LibriSpeech_directory - путь до директории с папкой (датасетом) LibriSpeech 
+musan_directory - путь до директории с папкой (датасетом) musan 
+device - cpu/cuda 
+n_epoch - число эпох прогона обучения 
+batch_size - размер батча 
 
-python predict.py -tst test_evaluationlib_directory -d device -bs batch_size \
+python predict.py -tst test_evaluationlib_directory -d device -bs batch_size
 
-test_evaluationlib_directory - путь до директории с папкой (датасетом) test_evaluationlib \
-device - cpu/cuda \
-batch_size - размер батча \
+test_evaluationlib_directory - путь до директории с папкой (датасетом) test_evaluationlib 
+device - cpu/cuda 
+batch_size - размер батча 
 
 ## Обзор существующих методов
 За последние года (2020-2021) для задачи VAD в основном в работах используют архитектуры основанные на рекурентных и сверточных сетях. 
