@@ -28,7 +28,7 @@ FA(1%) = 0.8125 \
 FR(1%) = 0.5736 \
 FA==FR = 0.800 
 
-# Precision recall curve val
+# Precision recall curve val dataset
 <img src = Val_presision_recall_curve.png>
 
 ## Обзор существующих методов
