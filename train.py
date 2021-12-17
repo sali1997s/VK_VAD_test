@@ -20,6 +20,7 @@ parser.add_argument('-lbs', '--librispeech', type = str, metavar = '', required 
 parser.add_argument('-m', '--musan', type = str, metavar = '', required = True, help = 'path to musan dataset (location of musan directory)')
 parser.add_argument('-n', '--n_epoch', type = int, metavar = '', required = True, help = 'number of epochs to train model')
 parser.add_argument('-d', '--device', type = str, metavar = '', required = True, help = 'device to train model')
+parser.add_argument('-bs', '--batch_size', type = int, metavar = '', required = True, help = 'batch_size')
 
 args = parser.parse_args()
 
@@ -46,8 +47,8 @@ def train(args):
 	val_dataset = VAD_Dataset(transforms = val_transforms, root = args.librispeech, url = 'train-clean-100')
 
 	#setting dataloaders
-	train_dataloader = DataLoader(train_dataset, collate_fn = collate_fn_train, batch_size = 64, shuffle  = True, drop_last = True)
-	val_dataloader = DataLoader(val_dataset, collate_fn = collate_fn_train, batch_size = 64, shuffle = False, drop_last = False)
+	train_dataloader = DataLoader(train_dataset, collate_fn = collate_fn_train, batch_size = args.batch_size, shuffle  = True, drop_last = True)
+	val_dataloader = DataLoader(val_dataset, collate_fn = collate_fn_train, batch_size = args.batch_size, shuffle = False, drop_last = False)
 
 	prev_score = 0.
 	for i in tqdm(range(args.n_epoch)):
